@@ -26,3 +26,4 @@ int main()
         printf("%d",arr[k]);
     return 0;
 }
+//afjajf
