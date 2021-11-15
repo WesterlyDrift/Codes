@@ -24,4 +24,4 @@ class seqString
         void insert(int start,const seqString &s);
         void remove(int start,int num);
 };
-//
+// test
