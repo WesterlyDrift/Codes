@@ -1,28 +1,54 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-#include<queue>
+
 using namespace std;
 
 int main()
 {
     int n;
-    
+    long long tmp;
     cin>>n;
-    int* a=new int[n];
+    vector<long long> a;
     for(int i=0;i<n;++i)
     {
-        cin>>a[i];  
+        cin>>tmp;
+        a.push_back(tmp);   
     }
-    if(n==1) { cout<<a[0]; return 0;}
-    sort(a,a+n);
+    if(n==1) { cout<<'0'; return 0;}
+    sort(a.begin(),a.end());
+    long long res=0;
+    bool added=false;
+    while(a.size()>1)
+    {   
+        added=false;
+        tmp=a[1]+a[0];
+        res+=tmp;
+        a.erase(a.begin(),a.begin()+2);
+        for(int k=0;k<a.size();k++)
+        {if(tmp<=a[k]) 
+            {   a.insert(a.begin()+k,tmp);
+                added=true;
+                break;
+            }
+        }
+        if(!added) a.push_back(tmp);
+       
+    
+    }
+
+    cout<<res;
+    
+
+    /*
     int res=a[0]+a[1],counter=2;
     int tmp=res;
     while(counter<n)
     {
         if(counter>=n-1)
         {
-            res+=a[n-1]+tmp;
+            tmp+=a[n-1];
+            res+=tmp;
             break;
         }
         else if(tmp<=a[counter+1])
@@ -39,6 +65,8 @@ int main()
         }
     }
     cout<<res;
+
+    */
     return 0;
 }
 
