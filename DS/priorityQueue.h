@@ -31,7 +31,7 @@ void priorityQueue<T>::enQueue(const T& x)
 
     //percolate upwards
     int hole=++currentSize;
-    for(;hole>1;&&x<array[hole/2];hole/=2)
+    for(;hole>1&&x<array[hole/2];hole/=2)
         array[hole]=array[hole/2];
     array[hole]=x;
 }
