@@ -1,6 +1,4 @@
-# @Version : 1.0  
-# @Time    : 2019/4/30  
-# @Author  : 实小楼
+#2021/11/17 I found the 'defend' unused.
 
 import time
 
